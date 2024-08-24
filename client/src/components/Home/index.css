@@ -1,0 +1,126 @@
+/* index.css */
+.intro-content {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: aliceblue;
+    padding: 10px;
+}
+
+.intro-content h1 {
+    font-size: 2.5rem;
+    color: #680039;
+}
+
+.intro-content p {
+    font-size: 1.3rem;
+    color: #000;
+    margin: 10px 0;
+}
+
+.blog-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.blogs-section {
+    margin-top: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.footer-content a {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer-content a:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+.blogs-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.blog-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-card img {
+    max-width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.blog-author {
+    font-weight: bold;
+    color: #0b0338;
+    margin-bottom: 5px;
+    font-size: 1.7em;
+}
+
+.blog-title {
+    font-size: 2em;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.blog-content {
+    color: #5a5a5a;
+    font-size: 1.3em;
+
+    line-height: 1.6;
+}
+
+.blog-card-footer {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980b9;
+}
+
+.blog-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
