@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './index.css'
+import CommentsSection from '../CommentsSection'
 
 const BlogDetails = () => {
   const { blog_id } = useParams()
@@ -33,22 +34,7 @@ const BlogDetails = () => {
         <img src={blogDetails.contentImage} alt={blogDetails.title} className="blogDetails-image-small" />
 
 
-        <div className="comments-section">
-          <strong>Comments:</strong>
-         
-         
-          {blogDetails.comments.length > 0 ? (
-            blogDetails.comments.map((comment, index) => (
-              <div className="comment" key={index}>
-                <p><strong>{comment.author}:</strong> {comment.text}</p>
-                <p className="comment-timestamp">{new Date(comment.timestamp).toLocaleString()}</p>
-              </div>
-            ))
-          ) : (
-            <p>No comments yet</p>
-
-          )}
-        </div>
+       <CommentsSection blog_id={blog_id} comments={blogDetails.comments} />
       </div>
       <img src={blogDetails.contentImage} alt={blogDetails.title} className="blogDetails-image-large" />
     </div>) : <p>Loading</p>}

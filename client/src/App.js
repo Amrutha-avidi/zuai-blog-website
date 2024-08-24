@@ -6,6 +6,8 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Profile from './components/Profile';
 import CreateBlog from './components/CreateBlog';
+import EditBlog from './components/EditBlog';
+
 import BlogDetails from './components/BlogDetails'
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -31,6 +33,8 @@ const App = () => {
             <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
             <Route path="/posts/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
             <Route path="/create" element={<ProtectedRoute><CreateBlog /></ProtectedRoute>} />
+            <Route path="/editBlog/:id" element={<ProtectedRoute><EditBlog /></ProtectedRoute>} />
+
             <Route path="/blogDetails/:blog_id" element={<ProtectedRoute><BlogDetails /></ProtectedRoute>} />
 
             {/* <Route path="*" element={<Navigate to="/" />} /> Redirect unknown routes to home */}

@@ -1,11 +1,11 @@
 
-.create-blog-con{
+.edit-blog-con{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.create-form {
+.edit-con {
     width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -22,7 +22,7 @@
 .input-con label{
     font-size: 20px;
 }
-.create-button {
+.edit-button {
   width: 100%;
   padding: 12px;
   background-color: #007bff;
@@ -35,6 +35,6 @@
   margin-top: 10px;
 }
 
-.create-button:hover {
+.edit-button:hover {
   background-color: #0056b3;
 }

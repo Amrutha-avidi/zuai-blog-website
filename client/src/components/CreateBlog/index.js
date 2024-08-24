@@ -3,12 +3,13 @@ import './index.css';
 import { UserContext } from '../../context/userContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './index.css'
 
 const CreateBlog = () => {
   const navigate = useNavigate()
   const { user } = useContext(UserContext);
   const [formData, setFormData] = useState({
-    authorId:user._id,
+    authorId: user._id,
     authorName: user.userName, // Set the author name from the user object
     title: '',
     content: '',
@@ -28,7 +29,7 @@ const CreateBlog = () => {
     const { title, content, contentImage } = formData;
     try {
       const { data } = await axios.post('/post', {
-        authorId:formData.authorId,
+        authorId: formData.authorId,
         authorName: formData.authorName,
         title,
         content,
@@ -55,44 +56,45 @@ const CreateBlog = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>{user.userName}</h1>
+    <div className='create-blog-con'>
+      <h1>Hello {user.userName}, Create a new post</h1>
+      <form onSubmit={handleSubmit} className='create-form'>
+        <div className='input-con'>
+          <label htmlFor="title">Blog Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="title">Blog Title:</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-        />
-      </div>
+        <div className='input-con'>
+          <label htmlFor="content">Content:</label>
+          <textarea
+            id="content"
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="content">Content:</label>
-        <textarea
-          id="content"
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-        />
-      </div>
+        <div className='input-con'>
+          <label htmlFor="contentImage">Content Image URL:</label>
+          <input
+            type="text"
+            id="contentImage"
+            name="contentImage"
+            value={formData.contentImage}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="contentImage">Content Image URL:</label>
-        <input
-          type="text"
-          id="contentImage"
-          name="contentImage"
-          value={formData.contentImage}
-          onChange={handleChange}
-        />
-      </div>
+        <button type="submit" className='create-button'>Create Blog Post</button>
+        <p style={{ color: 'red', fontSize: '20px' }}>{error}</p>
+      </form>      </div>
 
-      <button type="submit">Submit Blog Post</button>
-      <p style={{color:'red', fontSize:'20px'}}>{error}</p>
-    </form>
   );
 }
 

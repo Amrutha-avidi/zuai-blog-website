@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
 import axios from 'axios';
 import './index.css';
@@ -27,6 +27,20 @@ const Profile = () => {
     fetchPosts();
   }, [id]); // Fetch posts when the user ID changes
 
+  const handleDelete = async (postId) => {
+    try {
+      const response = await axios.delete(`/post/${postId}`);
+      console.log('Post deleted successfully:', response.data);
+  
+      // Optionally remove the deleted post from the local state
+      setAuthorPosts((prevPosts) =>
+        prevPosts.filter((post) => post._id !== postId)
+      );
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  };
+  
   if (error) return <p className="error-message">{error}</p>;
   if (authorPosts.length === 0) return <p className="no-posts-message">No posts available</p>;
 
@@ -63,8 +77,8 @@ const Profile = () => {
             </div>
 
             <div className="buttons-section">
-              <button className='edit'>EDIT</button>
-              <button className='delete'>DELETE</button>
+              <Link to={`/editBlog/${post._id}`} className='edit change-buttons'>EDIT</Link>
+              <button className='delete change-buttons' onClick={() => handleDelete(post._id)}>DELETE</button>
             </div>
           </div>
         ))}
