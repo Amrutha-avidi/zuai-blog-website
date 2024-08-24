@@ -174,41 +174,37 @@ app.get('/posts/:id', async (req, res) => {
 
 
 // adding comment to the blog of blog_id = blog_id
-// app.post('blogDetails/:id', async (req, res) => {
-//     console.log("ASdas")
-//     try {
-//         const blogId = req.params.id;
-//         const { commenterName, comment } = req.body;
-//         console.log(blogId)
+app.post('/blogDetails/comments/:id', async (req, res) => {
+    try {
+        const blogId = req.params.id;
+        const { commenterName, comment } = req.body;
 
-//         // Validate input
-//         if (!commenterName || !comment) {
-//             return res.status(400).json({ error: 'Commenter name and comment are required' });
-//         }
+        // Validate input
+        if (!commenterName || !comment) {
+            return res.status(400).json({ error: 'Commenter name and comment are required' });
+        }
 
-//         // Create a new comment
-//         const newComment = {
-//             commenterName,
-//             comment,
-//             timestamp: new Date()
-//         };
-//         console.log(newComment)
+        // Create a new comment
+        const newComment = {
+            commenterName,
+            comment,
+        };
 
-//         // Find the blog post and add the comment
-//         const blog = await BlogPost.findById(blogId);
-//         if (!blog) {
-//             return res.status(404).json({ error: 'Blog not found' });
-//         }
+        // Find the blog post and add the comment
+        const blog = await BlogPost.findById(blogId);
+        if (!blog) {
+            return res.status(404).json({ error: 'Blog not found' });
+        }
 
-//         blog.comments.push(newComment);
-//         await blog.save();
+        blog.comments.push(newComment);
+        await blog.save();
 
-//         res.status(200).json({ success: true, comment: newComment });
-//     } catch (error) {
-//         console.error('Error posting comment:', error);
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// });
+        res.status(200).json({  comment: newComment });
+    } catch (error) {
+        console.error('Error posting comment:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 // Update a blog post
 app.put('/editBlog/:id', async (req, res) => {
     try {
@@ -216,15 +212,15 @@ app.put('/editBlog/:id', async (req, res) => {
         const { title, content } = req.body;
 
         const updatedPost = await BlogPost.findByIdAndUpdate(blogId, {
-          title,
-          content,
+            title,
+            content,
         }, { new: true });
-    
+
         if (!updatedPost) {
-          return res.status(404).json({ error: 'Post not found' });
+            return res.status(404).json({ error: 'Post not found' });
         }
 
-     
+
         res.status(200).json({ success: true, blogPost: updatedPost });
     } catch (error) {
         console.error('Error updating blog post:', error);
