@@ -9,7 +9,7 @@
 .login-form {
     width: 300px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     background-color: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 5px;
@@ -19,7 +19,9 @@
   .form-group {
     margin-bottom: 20px;
   }
-  
+  .form-control{
+    margin-bottom: 20px;
+  }
   label {
     display: block;
     margin-bottom: 10px;

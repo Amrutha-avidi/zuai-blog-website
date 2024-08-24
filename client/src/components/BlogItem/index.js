@@ -11,7 +11,7 @@ const BlogItem = ({ blog }) => {
             <p className="blog-content">{content}</p>
             <img src={contentImage} alt={title} />
             <div className="blog-card-footer">
-                <Link to={`/blogDetails/${_id}`} className="button">View Profile</Link>
+                <Link to={`/blogDetails/${_id}`} className="button">View Blog Details</Link>
             </div>
         </div>
     )

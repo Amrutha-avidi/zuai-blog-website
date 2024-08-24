@@ -38,7 +38,8 @@ const SignUp = () => {
 
   return (
     <div className='main-con'>
-      <h1>Sign Up</h1>
+      <h1>Welcome to Blogger !</h1>
+      <h2>Please Register</h2>
 
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="form-control">
