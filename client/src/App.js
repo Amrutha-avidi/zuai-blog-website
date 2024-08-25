@@ -16,7 +16,7 @@ import Layout from './Layout';
 import axios from 'axios';
 // import './App.css'
 
-axios.defaults.baseURL = 'http://localhost:3003';
+axios.defaults.baseURL = 'https://zuai-blog-website-1.onrender.com';
 axios.defaults.withCredentials = true;
 
 const App = () => {
