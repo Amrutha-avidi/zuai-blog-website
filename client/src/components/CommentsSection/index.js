@@ -11,6 +11,8 @@ const CommentsSection = ({ blog_id, comments }) => {
 
   const handleCommentSubmit = async (event) => {
     event.preventDefault();
+    setError(''); // Reset error state
+
     try {
       const response = await axios.post(`/blogDetails/comments/${blog_id}`, {
         commenterName: user.userName,
@@ -23,6 +25,7 @@ const CommentsSection = ({ blog_id, comments }) => {
       setError('Error posting comment');
     }
   };
+
   return (
     <div className="comments-section">
       <strong>Comments:</strong>
@@ -34,16 +37,20 @@ const CommentsSection = ({ blog_id, comments }) => {
           placeholder="Add a comment..."
           required
         />
-        <button type="submit">Post Comment</button>
+        <button type="submit" >
+          Post Comment
+        </button>
       </form>
       {error && <p className="error-message">{error}</p>}
       {commentList.length > 0 ? (
         <div>
-          {commentList.map((each) => (
-            <div className="comment" key={each._id}>
-              <p><strong>{each.commenterName}:</strong> {each.comment}</p>
+          {commentList.map((each,index) => (
+            <div className="comment" key={index}>
+              <p style={{ fontStyle: "italic", color: "gray", fontSize: '18px' }}><strong style={{ color: 'black' }}>{each.commenterName}:</strong> {each.comment}</p>
+
             </div>
-        ))}</div>
+          ))}
+        </div>
       ) : (
         <p>No comments yet</p>
       )}

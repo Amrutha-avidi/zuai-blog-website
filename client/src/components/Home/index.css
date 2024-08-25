@@ -27,29 +27,7 @@
     margin-top: 20px;
 }
 
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 50px;
-}
 
-.footer-content p {
-    margin: 5px 0;
-    font-size: 1rem;
-}
-
-.footer-content a {
-    color: #f0f0f0;
-    text-decoration: none;
-    margin-left: 5px;
-}
-
-.footer-content a:hover {
-    color: #ddd;
-    text-decoration: underline;
-}
 
 .blogs-section {
     display: grid;
@@ -123,4 +101,9 @@
     border: none;
     border-top: 1px solid #ddd;
     margin: 10px 0;
+}.search-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 20px;
 }

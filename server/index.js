@@ -143,7 +143,6 @@ app.get('/blogDetails/:id', async (req, res) => {
     try {
         const blogId = req.params.id;
         const blog = await BlogPost.findById(blogId); // Fetch the post by ID from the database
-        console.log(blog)
 
         if (!blog) {
             return res.status(404).json({ error: 'Blog not found' });

@@ -64,8 +64,7 @@ const Profile = () => {
                   {post.comments.length > 0 ? (
                     post.comments.map((comment, index) => (
                       <div className="comment" key={index}>
-                        <p><strong>{comment.author}:</strong> {comment.text}</p>
-                        <p className="comment-timestamp">{new Date(comment.timestamp).toLocaleString()}</p>
+                        <p style={{fontStyle:"italic", color:"gray",fontSize:'18px'}}><strong style={{color:'black'}}>{comment.commenterName}:</strong> {comment.comment}</p>
                       </div>
                     ))
                   ) : (

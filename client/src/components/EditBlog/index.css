@@ -38,3 +38,17 @@
 .edit-button:hover {
   background-color: #0056b3;
 }
+@media screen and (max-width:768px) {
+  .edit-blog-con h1 {
+    font-size: 25px;
+  }
+  .edit-con {
+    width: 300px;
+    padding: 15px;
+  }
+
+  .input-con input {
+    padding: 5px;
+  }
+
+}
